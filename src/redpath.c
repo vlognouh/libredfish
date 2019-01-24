@@ -1,12 +1,22 @@
+/** @file
+
+  Copyright (c) 2019, Intel Corporation. All rights reserved.<BR>
+  This program and the accompanying materials
+  are licensed and made available under the terms and conditions of the BSD License
+  which accompanies this distribution.  The full text of the license may be found at
+  http://opensource.org/licenses/bsd-license.php.
+
+  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+
+**/
 //----------------------------------------------------------------------------
 // Copyright Notice:
 // Copyright 2017 Distributed Management Task Force, Inc. All rights reserved.
 // License: BSD 3-Clause License. For full text see link: https://github.com/DMTF/libredfish/LICENSE.md
 //----------------------------------------------------------------------------
-#include <stdlib.h>
-#include <string.h>
-
-#include <redpath.h>
+#include <jansson.h>
+#include "..\include\redpath.h"
 
 static char* getVersion(const char* path, char** end);
 static void parseNode(const char* path, redPathNode* node, redPathNode** end);
@@ -132,7 +142,7 @@ static void parseNode(const char* path, redPathNode* node, redPathNode** end)
         node->next->isIndex = true;
         return;
     }
-    opChars = strpbrk(index, "<>=");
+    opChars = strpbrk(index, "<>=~");
     if(opChars == NULL)
     {
         //TODO handle last() and position()
@@ -147,7 +157,7 @@ static void parseNode(const char* path, redPathNode* node, redPathNode** end)
     tmpIndex = 1;
     while(1)
     {
-        if(opChars[tmpIndex] == '=' || opChars[tmpIndex] == '<' || opChars[tmpIndex] == '>')
+        if(opChars[tmpIndex] == '=' || opChars[tmpIndex] == '<' || opChars[tmpIndex] == '>' || opChars[tmpIndex] == '~')
         {
             tmpIndex++;
             continue;
