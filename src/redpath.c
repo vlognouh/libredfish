@@ -16,7 +16,7 @@
 // License: BSD 3-Clause License. For full text see link: https://github.com/DMTF/libredfish/LICENSE.md
 //----------------------------------------------------------------------------
 #include <jansson.h>
-#include "..\include\redpath.h"
+#include "../include/redpath.h"
 
 static char* getVersion(const char* path, char** end);
 static void parseNode(const char* path, redPathNode* node, redPathNode** end);

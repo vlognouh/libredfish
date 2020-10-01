@@ -20,6 +20,6 @@
 
 #include <redfishService.h>
 #include <redfishPayload.h>
-#include "..\..\..\include\redpath.h"
+#include "../../../include/redpath.h"
 
 #endif

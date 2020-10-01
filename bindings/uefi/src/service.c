@@ -17,7 +17,7 @@
 //----------------------------------------------------------------------------
 #include <redfishService.h>
 #include <redfishPayload.h>
-#include "..\..\..\include\redpath.h"
+#include "../../../include/redpath.h"
 
 static int initRest(redfishService* service, void * restProtocol);
 static redfishService* createServiceEnumeratorNoAuth(const char* host, const char* rootUri, bool enumerate, unsigned int flags, void * restProtocol);

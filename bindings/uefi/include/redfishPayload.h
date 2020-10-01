@@ -20,7 +20,7 @@
 
 #include "redfishService.h"
 
-#include "..\..\..\include\redpath.h"
+#include "../../../include/redpath.h"
 
 redfishPayload* createRedfishPayload(json_t* value, redfishService* service);
 redfishPayload* getPayloadByNodeName(redfishPayload* payload, const char* nodeName, EFI_HTTP_STATUS_CODE** StatusCode);
